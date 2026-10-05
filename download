@@ -1,0 +1,3 @@
+# Created at runtime — holds registered users and their password hashes.
+# Ignored so everyone who copies the project starts with a clean account list.
+accounts.json

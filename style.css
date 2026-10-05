@@ -1,0 +1,702 @@
+/* ==========================================================================
+   Phoenix Safety — shared styles for Login, Sign-up and Forgot Password
+   ========================================================================== */
+
+:root {
+    --red: #e5101a;
+    --red-btn: #f01c24;
+    --red-btn-hover: #cf141c;
+    --dark-red: #96141a;
+    --ink: #111;
+    --muted: #9b9b9b;
+    --font: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: var(--font);
+    background: #fff;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ---------------- Red artwork panel (shared) ---------------- */
+
+.promo {
+    position: relative;
+    width: 48.5%;
+    overflow: hidden;
+    background: var(--red);
+}
+
+/* Login: flat on the left, convex bulge on the right */
+.promo--left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 51px 68px 0;
+    border-radius: 0 16.4% 16.4% 0 / 0 50% 50% 0;
+}
+
+/* Sign-up / Reset: mirrored — convex bulge on the left */
+.promo--right {
+    border-radius: 16.4% 0 0 16.4% / 50% 0 0 50%;
+}
+
+/* Faded watermark behind the Login copy */
+.promo-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 175%;
+    max-width: none;
+    height: auto;
+    transform: translate(calc(-50% - 12px), calc(-50% - 13px));
+    opacity: .32;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Full-colour logo used on Sign-up / Reset */
+.promo-artwork {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 166%;
+    max-width: none;
+    height: auto;
+    transform: translate(-50%, calc(-50% - 25px));
+    opacity: .9;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* ==========================================================================
+   Login page
+   ========================================================================== */
+
+.promo-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.promo h1 {
+    font-size: 43px;
+    line-height: 68px;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.promo p {
+    margin-top: 30px;
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 700;
+}
+
+.signup-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 116px;
+    min-width: 192px;
+    height: 72px;
+    padding: 0 32px;
+    background: var(--red-btn);
+    border: 2px solid #fff;
+    border-radius: 14px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .15s ease, transform .15s ease;
+}
+
+.signup-btn:hover {
+    background: var(--red-btn-hover);
+    transform: translateY(-2px);
+}
+
+.login {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 40px 126px;
+    background: #fff;
+}
+
+.login-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* The PNG has transparent padding around the seal, so the element box
+   is the visible circle (116px) while the image itself is larger. */
+.seal {
+    position: relative;
+    flex: 0 0 auto;
+    width: 116px;
+    height: 116px;
+}
+
+.seal img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 146.6%;
+    height: auto;
+    transform: translate(-50%, -50%);
+}
+
+.login h2 {
+    margin-top: 31px;
+    color: var(--dark-red);
+    font-size: 40px;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: .2px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.login form {
+    width: 432px;
+    max-width: 100%;
+    margin-top: 65px;
+}
+
+.login-inner .field-group+.field-group {
+    margin-top: 66px;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    height: 93px;
+    padding: 0 16px;
+    background: #fff;
+    border: 2px solid var(--ink);
+}
+
+.field .ico {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+}
+
+.field input {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 33px;
+}
+
+.field input::placeholder {
+    color: var(--muted);
+    opacity: 1;
+}
+
+.login-btn {
+    display: block;
+    width: 181px;
+    height: 66px;
+    margin: 38px auto 0;
+    background: var(--red-btn);
+    border: 0;
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: .6px;
+    cursor: pointer;
+    transition: background .15s ease, transform .15s ease;
+}
+
+.login-btn:hover {
+    background: var(--red-btn-hover);
+    transform: translateY(-1px);
+}
+
+.forgot {
+    margin-top: 36px;
+    text-align: center;
+}
+
+.forgot a {
+    color: var(--dark-red);
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.forgot a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Sign-up / Forgot-password pages (white form side)
+   ========================================================================== */
+
+.pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 20px 0 60px;
+    background: #fff;
+}
+
+.auth {
+    width: 515px;
+    max-width: 100%;
+}
+
+.auth h1 {
+    margin-bottom: 44px;
+    color: var(--dark-red);
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.auth .field-group {
+    margin-bottom: 46px;
+}
+
+.auth .field-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--ink);
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 700;
+}
+
+.auth .field-group input {
+    width: 100%;
+    height: 66px;
+    padding: 0 16px;
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 0;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 26px;
+    outline: 0;
+}
+
+.auth .field-group input:focus {
+    border-color: var(--red-btn);
+}
+
+.pill-btn {
+    display: block;
+    width: 220px;
+    height: 56px;
+    margin: 0 auto;
+    background: var(--red-btn);
+    border: 0;
+    border-radius: 28px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .15s ease, transform .15s ease;
+}
+
+.pill-btn:hover {
+    background: var(--red-btn-hover);
+    transform: translateY(-2px);
+}
+
+.alt-link {
+    margin-top: 48px;
+    font-size: 26px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.alt-link a {
+    color: var(--dark-red);
+    text-decoration: none;
+}
+
+.alt-link a:hover {
+    text-decoration: underline;
+}
+
+/* Forgot-password: no footer line, and a roomier gap above the button */
+.pane--reset {
+    padding-top: 72px;
+    padding-bottom: 0;
+}
+
+.auth--reset h1 {
+    margin-bottom: 50px;
+}
+
+.auth--reset .field-group {
+    margin-bottom: 52px;
+}
+
+/* No collapsing with the button: the gap is owned by .pill-btn itself */
+.auth--reset .field-group:last-of-type {
+    margin-bottom: 0;
+}
+
+.auth--reset .pill-btn {
+    margin-top: 80px;
+}
+
+/* Secondary "Back" action on the reset page */
+.pill-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    height: 56px;
+    margin: 16px auto 0;
+    background: transparent;
+    border: 2px solid var(--red-btn);
+    border-radius: 28px;
+    color: var(--red-btn);
+    font-family: inherit;
+    font-size: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .15s ease, color .15s ease, transform .15s ease;
+}
+
+.pill-link:hover {
+    background: var(--red-btn);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ---------------- Show / hide password ---------------- */
+
+/* Wrapper used on the labelled forms (sign-up / reset) so the toggle can sit
+   inside the input's right edge. */
+.pass-wrap {
+    position: relative;
+}
+
+/* Keep long passwords clear of the toggle icon. */
+.auth .field-group .pass-wrap input {
+    padding-right: 62px;
+}
+
+.toggle-pass {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 0;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.toggle-pass:hover {
+    color: var(--ink);
+}
+
+.toggle-pass:focus-visible {
+    outline: 2px solid var(--red-btn);
+    outline-offset: 1px;
+}
+
+.toggle-pass svg {
+    display: block;
+    width: 26px;
+    height: 26px;
+}
+
+/* The login field is a flex row, so the button sits inline rather than
+   floating over the input. */
+.field .toggle-pass {
+    position: static;
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    transform: none;
+}
+
+.field .toggle-pass svg {
+    width: 40px;
+    height: 40px;
+}
+
+/* Icon state: the slashed eye shows while the password is visible. */
+.toggle-pass .eye-off {
+    display: none;
+}
+
+.toggle-pass.is-visible .eye-open {
+    display: none;
+}
+
+.toggle-pass.is-visible .eye-off {
+    display: block;
+}
+
+/* ---------------- Validation messages ---------------- */
+
+.field-error {
+    margin-top: 8px;
+    color: var(--dark-red);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.auth .field-error {
+    line-height: 1.3;
+}
+
+.form-notice {
+    width: 100%;
+    max-width: 432px;
+    margin-bottom: 22px;
+    padding: 12px 16px;
+    border-left: 4px solid var(--red-btn);
+    background: #fdecec;
+    color: var(--dark-red);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+/* With a notice the block must hang from the top, otherwise centring it
+   would push the message above the fold on an 836px-tall screen. */
+.login--notice {
+    justify-content: flex-start;
+    padding-bottom: 40px;
+}
+
+.form-notice--ok {
+    border-left-color: #1d8a3f;
+    background: #eaf7ee;
+    color: #14682f;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+/* Short screens */
+@media (max-height: 800px) {
+    .promo--left {
+        padding-bottom: 24px;
+    }
+
+    .signup-btn {
+        margin-top: 64px;
+    }
+
+    .login {
+        padding-bottom: 40px;
+    }
+
+    .login form {
+        margin-top: 42px;
+    }
+
+    .login-inner .field-group+.field-group {
+        margin-top: 42px;
+    }
+
+    .field {
+        height: 78px;
+    }
+
+    .login-btn {
+        margin-top: 28px;
+    }
+
+    .forgot {
+        margin-top: 24px;
+    }
+}
+
+/* Narrow screens */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .promo--left {
+        width: 100%;
+        padding: 56px 24px;
+        border-radius: 0 0 42% 42% / 0 0 14% 14%;
+    }
+
+    .promo--right {
+        width: 100%;
+        height: 340px;
+        border-radius: 0 0 42% 42% / 0 0 18% 18%;
+        order: -1;
+    }
+
+    .promo-watermark {
+        width: 140%;
+    }
+
+    .promo-artwork {
+        width: 90%;
+        transform: translate(-50%, -50%);
+    }
+
+    .promo h1 {
+        font-size: 34px;
+        line-height: 1.35;
+    }
+
+    .promo p {
+        margin-top: 18px;
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .signup-btn {
+        margin-top: 44px;
+    }
+
+    .login {
+        padding: 40px 24px 56px;
+    }
+
+    .seal {
+        width: 92px;
+        height: 92px;
+    }
+
+    .login h2 {
+        font-size: 30px;
+    }
+
+    .field {
+        height: 74px;
+        gap: 14px;
+    }
+
+    .field .ico {
+        width: 36px;
+        height: 36px;
+    }
+
+    .field input {
+        font-size: 24px;
+    }
+
+    .pane {
+        padding: 40px 24px 56px;
+        order: 1;
+    }
+
+    .auth {
+        width: 100%;
+    }
+
+    .auth h1 {
+        font-size: 30px;
+        line-height: 1.3;
+        margin-bottom: 28px;
+    }
+
+    .auth .field-group {
+        margin-bottom: 28px;
+    }
+
+    .auth .field-group label {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 6px;
+    }
+
+    .auth .field-group input {
+        height: 54px;
+        font-size: 18px;
+    }
+
+    .auth .field-group .pass-wrap input {
+        padding-right: 46px;
+    }
+
+    .toggle-pass {
+        right: 8px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .toggle-pass svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .field .toggle-pass {
+        width: 36px;
+        height: 36px;
+    }
+
+    .field .toggle-pass svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .alt-link {
+        margin-top: 30px;
+        font-size: 19px;
+    }
+
+    .auth--reset .field-group:last-of-type {
+        margin-bottom: 28px;
+    }
+
+    .auth--reset .pill-btn {
+        margin-top: 0;
+    }
+}

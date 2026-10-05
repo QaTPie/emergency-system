@@ -1,0 +1,625 @@
+/* ==========================================================================
+   Phoenix Rising — Dashboard
+   ========================================================================== */
+
+:root {
+    --maroon: #7a0e14;
+    --red: #e5101a;
+    --red-btn: #f01c24;
+    --red-bright: #ff2f34;
+    --ink: #1a1a1a;
+    --pink: #f6c9cb;
+    --pink-soft: #f9d3d5;
+    --font: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    font-family: var(--font);
+    background: #fff;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    min-height: 100vh;
+}
+
+img {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+.sidebar {
+    flex: 0 0 258px;
+    width: 258px;
+    background: var(--maroon);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 14px 26px;
+    transition: margin-left .25s ease;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* The PNG carries transparent padding, so the box is the visible seal
+   and the image itself is scaled up to match (see .seal in style.css). */
+.brand-mark {
+    position: relative;
+    flex: 0 0 auto;
+    width: 72px;
+    height: 72px;
+}
+
+.brand-mark img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 146.6%;
+    height: auto;
+    transform: translate(-50%, -50%);
+}
+
+.brand-names {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.06;
+}
+
+.brand-top {
+    font-size: 31px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    color: #fff;
+}
+
+.brand-bottom {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    color: #f4242b;
+}
+
+.brand-sub {
+    margin-top: 24px;
+    padding-left: 6px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 28px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 2px;
+    margin-bottom: 12px;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 26px;
+    color: #fff;
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: background .15s ease, color .15s ease;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, .1);
+}
+
+.nav-item.is-active {
+    color: var(--red-bright);
+}
+
+.nav-item.is-active .nav-ico {
+    fill: var(--red-bright);
+}
+
+.nav-ico {
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    fill: #f2f2f2;
+}
+
+.nav-logout {
+    margin-top: auto;
+    margin-bottom: 0;
+    opacity: .92;
+}
+
+/* ==========================================================================
+   Main column
+   ========================================================================== */
+
+.main {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 28px 28px 32px 35px;
+}
+
+.topbar {
+    height: 32px;
+    margin-left: -15px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-btn {
+    width: 47px;
+    height: 32px;
+    background: none;
+    border: 0;
+    padding: 3px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.menu-btn span {
+    display: block;
+    height: 6px;
+    border-radius: 3px;
+    background: #111;
+}
+
+/* ---------------- Welcome banner ---------------- */
+
+.welcome {
+    position: relative;
+    margin-top: 28px;
+    padding: 18px 24px 7px;
+    background: var(--maroon);
+    border-radius: 40px;
+    color: #fff;
+    overflow: hidden;
+}
+
+.welcome-text h1 {
+    font-size: 32px;
+    line-height: 37px;
+    font-weight: 700;
+}
+
+.welcome-text p {
+    font-size: 20px;
+    line-height: 26px;
+    color: #f3dfe0;
+}
+
+.greeting {
+    position: absolute;
+    top: 17px;
+    right: 28px;
+    width: 243px;
+    padding: 6px 10px 8px;
+    background: rgba(255, 255, 255, .16);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.greeting strong {
+    display: block;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+.greeting span {
+    display: block;
+    font-size: 13px;
+    line-height: 16px;
+    color: #f0d8d9;
+}
+
+.report-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    height: 50px;
+    margin-top: 6px;
+    background: var(--red-btn);
+    border-radius: 25px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: background .15s ease;
+}
+
+.report-btn:hover {
+    background: #d8141c;
+}
+
+.report-ico {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.arrow {
+    width: 26px;
+    height: 26px;
+    fill: #fff;
+}
+
+/* ==========================================================================
+   Content sections
+   ========================================================================== */
+
+.sections {
+    padding: 0 24px;
+}
+
+.eyebrow {
+    font-size: 13px;
+    line-height: 15px;
+    font-weight: 700;
+    letter-spacing: .6px;
+    color: #e8353b;
+}
+
+.sections h2 {
+    font-size: 23px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #111;
+}
+
+/* ---------------- Stat cards ---------------- */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+    margin-top: 31px;
+}
+
+.stat {
+    position: relative;
+    height: 60px;
+    padding: 11px 12px;
+    background: #fff;
+    border: 1.5px solid;
+    border-radius: 10px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16px;
+    white-space: nowrap;
+}
+
+.stat-value {
+    display: block;
+    margin-top: 6px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.stat-ico {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 26px;
+    height: 26px;
+}
+
+.stat--red {
+    border-color: #edbfc1;
+}
+
+.stat--red .stat-label,
+.stat--red .stat-value {
+    color: #dd3b41;
+}
+
+.stat--blue {
+    border-color: #b9cfe8;
+}
+
+.stat--blue .stat-label,
+.stat--blue .stat-value {
+    color: #3b6ea5;
+}
+
+.stat--sand {
+    border-color: #ddd0a6;
+}
+
+.stat--sand .stat-label,
+.stat--sand .stat-value {
+    color: #9a8b4a;
+}
+
+.stat--sand .stat-value {
+    font-style: italic;
+}
+
+.stat--green {
+    border-color: #b6e0c1;
+}
+
+.stat--green .stat-label,
+.stat--green .stat-value {
+    color: #2f9e4f;
+}
+
+/* ---------------- Alerts + help ---------------- */
+
+.mid {
+    display: grid;
+    grid-template-columns: minmax(0, 443fr) minmax(0, 314fr);
+    gap: 30px;
+    margin-top: 27px;
+    align-items: start;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 57px;
+    margin-top: 8px;
+    padding: 0 18px;
+    background: #fff;
+    border: 1.5px solid;
+    border-radius: 14px;
+}
+
+.alert + .alert {
+    margin-top: 7px;
+}
+
+.alert-dot {
+    flex: 0 0 auto;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.alert-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.alert-label {
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.alert-value {
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 700;
+}
+
+.alert--red {
+    border-color: #edaeb1;
+}
+
+.alert--red .alert-dot {
+    background: #d94a4a;
+}
+
+.alert--red .alert-label,
+.alert--red .alert-value {
+    color: #d4454a;
+}
+
+.alert--sand {
+    border-color: #d3c68c;
+}
+
+.alert--sand .alert-dot {
+    background: #a8954f;
+}
+
+.alert--sand .alert-label,
+.alert--sand .alert-value {
+    color: #9a8b4a;
+}
+
+.help {
+    background: var(--maroon);
+    border-radius: 14px;
+    padding: 13px 16px 7px;
+    text-align: center;
+    color: #fff;
+}
+
+.help-title {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+.help-button {
+    display: block;
+    width: 105px;
+    height: 105px;
+    margin: 3px auto 0;
+    object-fit: contain;
+}
+
+.help-caption {
+    margin-top: 4px;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+/* ---------------- Recent reports ---------------- */
+
+.reports {
+    min-height: 258px;
+    margin-top: 20px;
+    padding: 18px 14px 20px;
+    background: var(--pink);
+    border-radius: 14px;
+}
+
+.reports h2 {
+    margin-top: 0;
+    font-size: 21px;
+    line-height: 28px;
+}
+
+.report-head {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 4px;
+    padding: 0 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #3d3d3d;
+}
+
+.report-empty {
+    margin-top: 4px;
+    height: 125px;
+    border: 2px dashed #c08d90;
+    border-radius: 10px;
+    background: var(--pink-soft);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.empty-ico {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 4px;
+}
+
+.empty-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3d3d3d;
+}
+
+.empty-sub {
+    font-size: 14px;
+    color: #7d7d7d;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+body.nav-open .sidebar {
+    margin-left: 0;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        position: fixed;
+        inset: 0 auto 0 0;
+        z-index: 20;
+        margin-left: -270px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, .35);
+    }
+
+    .main {
+        padding: 20px 16px 28px;
+    }
+
+    .topbar {
+        margin-left: 0;
+    }
+
+    .welcome {
+        padding: 18px 18px 14px;
+        border-radius: 26px;
+    }
+
+    .welcome-text h1 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    .welcome-text p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .greeting {
+        position: static;
+        width: auto;
+        margin-top: 14px;
+        text-align: left;
+    }
+
+    .report-btn {
+        font-size: 17px;
+        gap: 8px;
+    }
+
+    .report-ico {
+        width: 26px;
+        height: 26px;
+    }
+
+    .arrow {
+        width: 20px;
+        height: 20px;
+    }
+
+    .sections {
+        padding: 0;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .mid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .report-head {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 4px;
+    }
+}
